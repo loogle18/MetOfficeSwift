@@ -1,0 +1,6 @@
+framework module Pods_MetOfficeSwift {
+  umbrella header "Pods-MetOfficeSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}
