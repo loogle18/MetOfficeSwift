@@ -11,7 +11,6 @@ import UIKit
 class StationTableViewCell: UITableViewCell {
     @IBOutlet weak var nameUILabel: UILabel!
     var name: String!
-    var location: String!
     
     override func layoutSubviews() {
         super.layoutSubviews()

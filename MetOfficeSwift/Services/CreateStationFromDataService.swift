@@ -15,7 +15,10 @@ class CreateStationFromDataService {
     class func createStation(_ data: String) -> Station {
         var lines = data.components(separatedBy: CharacterSet.newlines)
         let name = lines[0].components(separatedBy: "/").first?.components(separatedBy: "  ").first
-        let station = Station(name: name!, location: lines[1])
+        let locationData = (lines[1] + " " + lines[2]).components(separatedBy: "Lat").last
+        let location = createLocationFromData(locationData!)
+        
+        let station = Station(name: name!, location: location)
         var indexToRemoveInclusive = 0
         
         for (index, line) in lines.enumerated() {
@@ -79,5 +82,14 @@ class CreateStationFromDataService {
         } else {
             return noDataSign
         }
+    }
+    
+    private class func createLocationFromData(_ data: String) -> Location {
+        let (lanLatPattern, amslPttern, digitsPattern) = ("-?\\d+.\\d+", "(\\d+ m| \\d+m)", "\\d+")
+        let lat = data.matches(for: lanLatPattern)[0]
+        let lon = data.matches(for: lanLatPattern)[1]
+        let amsl = data.matches(for: amslPttern)[0].matches(for: digitsPattern)[0]
+        
+        return Location(lat: Double(lat), lon: Double(lon), amsl: UInt(amsl))
     }
 }

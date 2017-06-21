@@ -27,7 +27,6 @@ class StationsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StationCell", for: indexPath) as! StationTableViewCell
         cell.name = stations[indexPath.row].name
-        cell.location = stations[indexPath.row].location
         return cell
     }
     

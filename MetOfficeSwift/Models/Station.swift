@@ -7,10 +7,11 @@
 //
 
 class Station {
-    var name, location: String
+    var name: String
+    var location: Location
     var climates: [Climate]
     
-    init(name: String, location: String) {
+    init(name: String, location: Location) {
         self.name = name
         self.location = location
         self.climates = [Climate]()

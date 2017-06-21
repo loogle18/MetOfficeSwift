@@ -22,6 +22,8 @@
 		A1CA48D41EFADC6000752D33 /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CA48D31EFADC6000752D33 /* StationViewController.swift */; };
 		A1CA48D61EFADF4300752D33 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CA48D51EFADF4300752D33 /* Double.swift */; };
 		A1CA48D81EFAE79000752D33 /* ClimateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CA48D71EFAE79000752D33 /* ClimateTableViewCell.swift */; };
+		A1CA48DA1EFB03D600752D33 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CA48D91EFB03D600752D33 /* Location.swift */; };
+		A1CA48DC1EFB0D7A00752D33 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CA48DB1EFB0D7A00752D33 /* String.swift */; };
 		ADFA6BF5E5D25EB8CCB36A00 /* Pods_MetOfficeSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E16B92916D6EC2D8C92FF91 /* Pods_MetOfficeSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +48,8 @@
 		A1CA48D31EFADC6000752D33 /* StationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
 		A1CA48D51EFADF4300752D33 /* Double.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		A1CA48D71EFAE79000752D33 /* ClimateTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClimateTableViewCell.swift; sourceTree = "<group>"; };
+		A1CA48D91EFB03D600752D33 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		A1CA48DB1EFB0D7A00752D33 /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,7 @@
 			children = (
 				A1CA48C11EF9BD3800752D33 /* Station.swift */,
 				A1CA48C31EF9BFB400752D33 /* Climate.swift */,
+				A1CA48D91EFB03D600752D33 /* Location.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 			children = (
 				A1CA48C61EF9FBAA00752D33 /* Array.swift */,
 				A1CA48D51EFADF4300752D33 /* Double.swift */,
+				A1CA48DB1EFB0D7A00752D33 /* String.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -277,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1CA48CC1EFA7F4700752D33 /* StationsTableViewController.swift in Sources */,
+				A1CA48DC1EFB0D7A00752D33 /* String.swift in Sources */,
 				A1CA48C01EF9AC5F00752D33 /* StationDataService.swift in Sources */,
 				A1CA48D01EFAD24100752D33 /* StationTableViewCell.swift in Sources */,
 				A1CA48C21EF9BD3800752D33 /* Station.swift in Sources */,
@@ -286,6 +293,7 @@
 				A1CA48D41EFADC6000752D33 /* StationViewController.swift in Sources */,
 				A1CA48D81EFAE79000752D33 /* ClimateTableViewCell.swift in Sources */,
 				A1CA48D61EFADF4300752D33 /* Double.swift in Sources */,
+				A1CA48DA1EFB03D600752D33 /* Location.swift in Sources */,
 				A1CA48CE1EFA9CD800752D33 /* CreateStationFromDataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
