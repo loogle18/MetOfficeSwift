@@ -12,8 +12,9 @@ class StationsTableViewController: UITableViewController {
     var stations = [Station]()
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
         StationDataService.getAllStationsData { stations in
-            print(stations.count)
             self.stations = stations.sorted { $0.name < $1.name }
             self.tableView.reloadData()
         }
@@ -24,8 +25,23 @@ class StationsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StationCell", for: indexPath)
-        cell.textLabel?.text = stations[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StationCell", for: indexPath) as! StationTableViewCell
+        cell.name = stations[indexPath.row].name
+        cell.location = stations[indexPath.row].location
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowSelectedStation" {
+            let stationVC = segue.destination as? StationViewController
+            guard let cell = sender as? UITableViewCell,
+                let indexPath = tableView.indexPath(for: cell) else {
+                    return
+            }
+            let station = stations[indexPath.row]
+            
+            stationVC?.station = station
+            stationVC?.climates = station.climates
+        }
     }
 }

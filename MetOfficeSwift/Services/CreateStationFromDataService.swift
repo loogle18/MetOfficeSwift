@@ -10,6 +10,7 @@ import Foundation
 
 class CreateStationFromDataService {
     private static let lastLineIdentifierBeforeYears = "degC"
+    private static let noDataSign = "---"
     
     class func createStation(_ data: String) -> Station {
         var lines = data.components(separatedBy: CharacterSet.newlines)
@@ -58,16 +59,25 @@ class CreateStationFromDataService {
     private class func createClimates(_ dataDict: [String : [String : [String]]]) -> [Climate] {
         var climates = [Climate]()
         for (year, data) in dataDict {
-            let tMax = data["tMax"]!.flatMap{ Double($0) }.average
-            let tMin = data["tMin"]!.flatMap{ Double($0) }.average
-            let rain = data["rain"]!.flatMap{ Double($0) }.average
-            let afDays = data["afDays"]!.flatMap{ Double($0) }.average
-            let sunHours = data["sunHours"]!.flatMap{ Double($0) }.average
+            let tMax = getFormattedDataFor(data["tMax"]!)
+            let tMin = getFormattedDataFor(data["tMin"]!)
+            let rain = getFormattedDataFor(data["rain"]!)
+            let afDays = getFormattedDataFor(data["afDays"]!)
+            let sunHours = getFormattedDataFor(data["sunHours"]!)
             
             climates.append(Climate(year: year, tMax: tMax, tMin: tMin,
                                     rain: rain, afDays: afDays, sunHours: sunHours))
         }
         
         return climates
+    }
+    
+    private class func getFormattedDataFor(_ data: [String]) -> String {
+        let filteredData = data.filter { $0 != noDataSign }
+        if filteredData.count > 0 {
+            return String(filteredData.flatMap{ Double($0) }.average.roundTo(places: 2))
+        } else {
+            return noDataSign
+        }
     }
 }

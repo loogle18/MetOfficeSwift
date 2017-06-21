@@ -7,10 +7,9 @@
 //
 
 class Climate {
-    var year: String
-    var tMax, tMin, rain, afDays, sunHours: Double?
+    var year, tMax, tMin, rain, afDays, sunHours: String
     
-    init(year: String, tMax: Double?, tMin: Double?, rain: Double?, afDays: Double?, sunHours: Double?) {
+    init(year: String, tMax: String, tMin: String, rain: String, afDays: String, sunHours: String) {
         self.year = year
         self.tMax = tMax
         self.tMin = tMin
