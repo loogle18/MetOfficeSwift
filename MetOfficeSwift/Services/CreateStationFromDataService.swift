@@ -82,7 +82,7 @@ class CreateStationFromDataService {
                 .flatMap{ Double($0) }
                 .average
                 .roundTo(places: 2)
-            return String(filteredData)
+            return filteredData == 0.0 ? "0" : String(filteredData)
         } else {
             return noDataSign
         }
