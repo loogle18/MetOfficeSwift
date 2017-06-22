@@ -11,8 +11,8 @@ import UIKit
 class StationsTableViewController: UITableViewController {
     var stations = [Station]()
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         StationDataService.getAllStationsData { stations in
             self.stations = stations.sorted { $0.name < $1.name }

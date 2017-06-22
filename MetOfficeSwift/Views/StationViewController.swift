@@ -26,7 +26,7 @@ class StationViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        climates = climates.sorted { $0.year < $1.year }
+        climates = climates.sorted { $0.year > $1.year }
     }
     
     override func viewWillAppear(_ animated: Bool) {

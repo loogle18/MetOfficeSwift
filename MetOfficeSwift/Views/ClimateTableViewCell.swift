@@ -21,10 +21,10 @@ class ClimateTableViewCell: UITableViewCell {
         super.layoutSubviews()
     
         yearUILabel.text = "\(climate.year)\nyear"
-        tMaxUILabel.text = climate.tMax
-        tMinUILabel.text = climate.tMin
-        rainUILabel.text = climate.rain
-        afDaysUILabel.text = climate.afDays
-        sunHoursUILabel.text = climate.sunHours
+        tMaxUILabel.text = "Max temp: \(climate.tMax)" + (climate.tMax == "---" ? "" : " \u{00B0}C")
+        tMinUILabel.text = "Min temp: \(climate.tMin)" + (climate.tMin == "---" ? "" : " \u{00B0}C")
+        rainUILabel.text = "Rainfall: \(climate.rain)" + (climate.rain == "---" ? "" : " mm")
+        afDaysUILabel.text = "Days of air frost: \(climate.afDays)" + (climate.afDays == "---" ? "" : " days")
+        sunHoursUILabel.text = "Sunshine: \(climate.sunHours)" + (climate.sunHours == "---" ? "" : " hours")
     }
 }

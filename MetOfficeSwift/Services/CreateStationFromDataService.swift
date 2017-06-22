@@ -76,9 +76,13 @@ class CreateStationFromDataService {
     }
     
     private class func getFormattedDataFor(_ data: [String]) -> String {
-        let filteredData = data.filter { $0 != noDataSign }
-        if filteredData.count > 0 {
-            return String(filteredData.flatMap{ Double($0) }.average.roundTo(places: 2))
+        let noDataSignFilteredData = data.filter { $0 != noDataSign }
+        if noDataSignFilteredData.count > 0 {
+            let filteredData = noDataSignFilteredData.flatMap{ $0.trimed(from: "#").trimed(from: "*") }
+                .flatMap{ Double($0) }
+                .average
+                .roundTo(places: 2)
+            return String(filteredData)
         } else {
             return noDataSign
         }

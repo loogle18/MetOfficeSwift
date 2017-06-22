@@ -13,6 +13,10 @@ extension String {
         return self.trimmingCharacters(in: NSCharacterSet.whitespaces)
     }
     
+    func trimed(from symbol: String) -> String {
+        return components(separatedBy: symbol).joined()
+    }
+    
     func matches(for regex: String) -> [String] {
         do {
             let regex = try NSRegularExpression(pattern: regex, options: [])
