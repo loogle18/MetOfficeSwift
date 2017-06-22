@@ -15,11 +15,14 @@ class StationsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Loading stations..."
         showActivityIndicator()
         StationDataService.getAllStationsData { stations in
             self.stations = stations.sorted { $0.name < $1.name }
             self.tableView.reloadData()
             self.hideActivityIndicator()
+            self.title = "All \(stations.count) stations"
         }
     }
 
